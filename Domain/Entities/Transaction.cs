@@ -7,8 +7,8 @@ public class Transaction : Entity<Guid>
     public decimal Amount { get; set; }
     public Guid AccountId { get; set; }
     public Account Account { get; set; } = null!;
-    public Guid CategoryId { get; set; }
-    public Category Category { get; set; } = null!;
+    public Guid? CategoryId { get; set; } = null;
+    public Category? Category { get; set; } = null;
     public TrasactionType Type { get; set; }
 
 }

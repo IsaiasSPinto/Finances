@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context;
 
@@ -12,5 +13,9 @@ public class ApplicationDbContext : DbContext
     {
     }
 
+    public DbSet<User> Users { get; set; }
+    public DbSet<Account> Accounts { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
 
 }
