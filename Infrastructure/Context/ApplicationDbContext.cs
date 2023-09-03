@@ -1,4 +1,7 @@
-﻿using Domain.Entities;
+﻿using Domain.Accounts;
+using Domain.Categories;
+using Domain.Transactions;
+using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context;

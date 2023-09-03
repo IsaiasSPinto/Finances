@@ -1,4 +1,9 @@
-﻿namespace Domain.Entities;
+﻿using Domain.Accounts;
+using Domain.Categories;
+using Domain.Primitives;
+using Domain.Transactions;
+
+namespace Domain.Users;
 
 public class User : Entity<Guid>
 {

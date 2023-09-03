@@ -1,6 +1,8 @@
-﻿using Domain.Enuns;
+﻿using Domain.Accounts;
+using Domain.Categories;
+using Domain.Primitives;
 
-namespace Domain.Entities;
+namespace Domain.Transactions;
 public class Transaction : Entity<Guid>
 {
     public string Description { get; set; } = null!;

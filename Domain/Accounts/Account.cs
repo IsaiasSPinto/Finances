@@ -1,4 +1,8 @@
-﻿namespace Domain.Entities;
+﻿using Domain.Primitives;
+using Domain.Transactions;
+using Domain.Users;
+
+namespace Domain.Accounts;
 
 public class Account : Entity<Guid>
 {
@@ -7,5 +11,5 @@ public class Account : Entity<Guid>
     public decimal Balance { get; set; }
     public Guid UserId { get; set; }
     public User User { get; set; } = null!;
-    public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();   
+    public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }

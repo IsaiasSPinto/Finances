@@ -1,4 +1,8 @@
-﻿namespace Domain.Entities;
+﻿using Domain.Primitives;
+using Domain.Transactions;
+using Domain.Users;
+
+namespace Domain.Categories;
 
 public class Category : Entity<Guid>
 {
