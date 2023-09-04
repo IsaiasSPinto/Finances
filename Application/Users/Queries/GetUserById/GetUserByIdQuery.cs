@@ -1,8 +1,8 @@
-﻿namespace Application.Users.Queries.GetUserById;
+﻿//namespace Application.Users.Queries.GetUserById;
 
-public class GetUserByIdQuery : IRequest<UserDto>
-{
-    public int Id { get; set; }
-}
+//public class GetUserByIdQuery : IRequest<UserDto>
+//{
+//    public int Id { get; set; }
+//}
 
 

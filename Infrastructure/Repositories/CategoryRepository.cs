@@ -1,11 +1,11 @@
-﻿using Domain.Categories;
-using Infrastructure.Context;
+﻿//using Domain.Categories;
+//using Infrastructure.Context;
 
-namespace Infrastructure.Repositories;
+//namespace Infrastructure.Repositories;
 
-public class CategoryRepository : Repository, ICategoryRepository
-{
-    public CategoryRepository(ApplicationDbContext context) : base(context)
-    {
-    }
-}
+//public class CategoryRepository : Repository, ICategoryRepository
+//{
+//    public CategoryRepository(ApplicationDbContext context) : base(context)
+//    {
+//    }
+//}

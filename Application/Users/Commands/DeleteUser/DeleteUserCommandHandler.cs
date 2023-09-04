@@ -1,10 +1,11 @@
-﻿using MediatR;
+﻿using Application.Abstractions.Messaging;
+using Domain.Shared;
 
 namespace Application.Users.Commands.DeleteUser;
 
-public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, ResultValue>
+public class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
 {
-    public Task<ResultValue> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }

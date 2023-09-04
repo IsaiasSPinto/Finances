@@ -1,5 +1,7 @@
-﻿namespace Domain.Users;
+﻿using Domain.Shared;
 
-public interface IUserRepository
+namespace Domain.Users;
+
+public interface IUserRepository : IRepository<User, Guid>
 {
 }

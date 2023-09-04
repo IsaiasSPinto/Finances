@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Shared;
+using MediatR;
 
-namespace Application.Abstractions.Messaging
-{
-    internal class ICommandHandler
-    {
-    }
+namespace Application.Abstractions.Messaging;
+
+public interface ICommandHandler<TRequest, TResponse> : IRequestHandler<TRequest, Result<TResponse>> where TRequest : IRequest<Result<TResponse>>
+{    
 }
+
+public interface ICommandHandler<TRequest> : IRequestHandler<TRequest, Result> where TRequest : IRequest<Result>
+{
+}
+

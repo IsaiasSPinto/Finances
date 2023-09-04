@@ -1,11 +1,11 @@
-﻿using Domain.Accounts;
-using Infrastructure.Context;
+﻿//using Domain.Accounts;
+//using Infrastructure.Context;
 
-namespace Infrastructure.Repositories;
+//namespace Infrastructure.Repositories;
 
-public class AccountRepository : Repository, IAccountRepository
-{
-    public AccountRepository(ApplicationDbContext context) : base(context)
-    {
-    }
-}
+//public class AccountRepository : Repository, IAccountRepository
+//{
+//    public AccountRepository(ApplicationDbContext context) : base(context)
+//    {
+//    }
+//}

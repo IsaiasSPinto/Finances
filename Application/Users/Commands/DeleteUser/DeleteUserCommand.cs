@@ -3,6 +3,6 @@ using MediatR;
 
 namespace Application.Users.Commands.DeleteUser;
 
-public class DeleteUserCommand : IRequest<ResultValue>
+public class DeleteUserCommand : IRequest<Result>
 {
 }
