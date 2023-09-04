@@ -23,6 +23,12 @@ public class UserController : ApiController
     public async Task<IActionResult> Post(CreateUserCommand user)
     {
         var result = await _mediator.Send(user);
+
+        if(!result.Success)
+        {
+            return BadRequest(result);
+        }
+
         return Ok(result);
     }
 
