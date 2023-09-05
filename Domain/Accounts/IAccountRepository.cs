@@ -1,5 +1,8 @@
-﻿namespace Domain.Accounts;
+﻿using Domain.Shared;
 
-public interface IAccountRepository
+namespace Domain.Accounts;
+
+public interface IAccountRepository : IRepository<Account, Guid>
 {
+    Task<IEnumerable<Account>> GetAccountsByUserId(Guid userId);
 }

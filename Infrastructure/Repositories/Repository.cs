@@ -21,7 +21,7 @@ public class Repository<TEntity,TKey> : IRepository<TEntity,TKey> where TEntity 
 
     public async Task DeleteAsync(TKey id)
     {
-         var entity = await _context.Set<TEntity>().FindAsync(id);
+        var entity = await _context.Set<TEntity>().FindAsync(id);
 
         if(entity == null) 
             throw new Exception("Entity Not Found");

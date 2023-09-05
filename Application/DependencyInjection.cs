@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Application.Users.Mappings;
 using Application.Abstractions;
+using Application.Accounts.Mappings;
 
 namespace Application;
 
@@ -21,6 +22,7 @@ public static class DependencyInjection
         services.AddValidatorsFromAssembly(assembly,includeInternalTypes: true);
 
         services.AddAutoMapper(typeof(UserMappingProfile));
+        services.AddAutoMapper(typeof(AccountMappingProfile));
 
         return services;
     }
