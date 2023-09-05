@@ -13,9 +13,10 @@ public class Repository<TEntity,TKey> : IRepository<TEntity,TKey> where TEntity 
         _context = context;
     }
 
-    public async Task AddAsync(TEntity entity)
+    public async Task<TEntity> AddAsync(TEntity entity)
     {
-       await _context.Set<TEntity>().AddAsync(entity);
+        await _context.Set<TEntity>().AddAsync(entity);
+        return entity;
     }
 
     public void DeleteAsync(TEntity entity)
@@ -28,9 +29,9 @@ public class Repository<TEntity,TKey> : IRepository<TEntity,TKey> where TEntity 
         throw new NotImplementedException();
     }
 
-    public Task<TEntity> GetByIdAsync(TKey id)
+    public async Task<TEntity> GetByIdAsync(TKey id)
     {
-        throw new NotImplementedException();
+        return await _context.Set<TEntity>().FindAsync(id);
     }
 
     public void UpdateAsync(TEntity entity)

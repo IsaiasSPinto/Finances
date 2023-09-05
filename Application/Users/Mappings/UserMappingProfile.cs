@@ -1,4 +1,5 @@
 ﻿using Application.Users.Commands.CreateUser;
+using Application.Users.Queries;
 using AutoMapper;
 using Domain.Users;
 
@@ -9,5 +10,6 @@ public class UserMappingProfile : Profile
     public UserMappingProfile()
     {
         CreateMap<CreateUserCommand, User>();
+        CreateMap<User, UserQueryResult>();
     }
 }

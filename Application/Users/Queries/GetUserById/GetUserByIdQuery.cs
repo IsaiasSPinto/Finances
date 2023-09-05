@@ -1,8 +1,16 @@
-﻿//namespace Application.Users.Queries.GetUserById;
+﻿using Application.Abstractions.Messaging;
+using Domain.Shared;
 
-//public class GetUserByIdQuery : IRequest<UserDto>
-//{
-//    public int Id { get; set; }
-//}
+namespace Application.Users.Queries.GetUserById;
+
+public class GetUserByIdQuery : IQuery<UserQueryResult>
+{
+    public GetUserByIdQuery(Guid id)
+    {
+        Id = id;
+    }
+
+    public Guid Id { get; set; }
+}
 
 

@@ -6,6 +6,11 @@ public class Result<TValue> : Result
     {
     }
 
+    public Result(bool isSucceeded,TValue value) : base(isSucceeded)
+    {
+        Value = value;
+    }
+
     public TValue Value { get; set; }
 }
 

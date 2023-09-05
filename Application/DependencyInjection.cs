@@ -3,6 +3,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Application.Users.Mappings;
+using Application.Abstractions;
 
 namespace Application;
 
@@ -11,6 +12,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAplication(this IServiceCollection services)
     {
         var assembly = typeof(DependencyInjection).Assembly;
+
 
         services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(assembly));
 

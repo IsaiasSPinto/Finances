@@ -1,4 +1,5 @@
 ﻿using Application.Users.Commands.CreateUser;
+using Application.Users.Queries.GetUserById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +14,16 @@ public class UserController : ApiController
     }
 
     [HttpGet] 
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Get(Guid guid)
     {
+        var result = await _mediator.Send(new GetUserByIdQuery(guid));
 
-        return Ok();
+        if(!result.Success)
+        {
+            return BadRequest(result);
+        }
+
+        return Ok(result.Value);
     }
 
     [HttpPost]
@@ -29,7 +36,7 @@ public class UserController : ApiController
             return BadRequest(result);
         }
 
-        return Ok(result);
+        return CreatedAtAction(nameof(Get), result.Value);
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Shared;
+﻿using Application.Abstractions;
+using Domain.Shared;
 using Domain.Users;
 using Infrastructure.Context;
 using Infrastructure.Repositories;
@@ -16,6 +17,9 @@ public static class DependencyInjection
 
         services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
         services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
+
+
 
         return services;
     } 
