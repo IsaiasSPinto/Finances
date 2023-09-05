@@ -1,4 +1,5 @@
 ﻿using Application.Users.Commands.CreateUser;
+using Application.Users.Commands.UpdateUser;
 using Application.Users.Queries;
 using AutoMapper;
 using Domain.Users;
@@ -11,5 +12,6 @@ public class UserMappingProfile : Profile
     {
         CreateMap<CreateUserCommand, User>();
         CreateMap<User, UserQueryResult>();
+        CreateMap<UpdateUserCommand, User>();
     }
 }

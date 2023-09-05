@@ -19,23 +19,24 @@ public class Repository<TEntity,TKey> : IRepository<TEntity,TKey> where TEntity 
         return entity;
     }
 
-    public void DeleteAsync(TEntity entity)
+    public async Task DeleteAsync(TKey id)
     {
-        throw new NotImplementedException();
+         var entity = await _context.Set<TEntity>().FindAsync(id);
+
+        if(entity == null) 
+            throw new Exception("Entity Not Found");
+        
+        _context.Set<TEntity>().Remove(entity);
     }
 
-    public Task<List<TEntity>> GetAllAsync()
-    {
-        throw new NotImplementedException();
-    }
 
     public async Task<TEntity> GetByIdAsync(TKey id)
     {
         return await _context.Set<TEntity>().FindAsync(id);
     }
 
-    public void UpdateAsync(TEntity entity)
+    public void Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        _context.Set<TEntity>().Update(entity);
     }
 }

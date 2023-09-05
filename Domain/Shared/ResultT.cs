@@ -12,5 +12,10 @@ public class Result<TValue> : Result
     }
 
     public TValue Value { get; set; }
+
+    public static Result<TValue> Success(TValue value)
+    {
+        return new Result<TValue>(true, value);
+    }
 }
 

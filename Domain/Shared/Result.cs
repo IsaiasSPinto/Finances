@@ -4,15 +4,21 @@ public class Result
 {
     public Result(bool isSucceeded)
     {
-        Success = isSucceeded;
+        IsSuccess = isSucceeded;
     }
 
     public Result(bool isSucceeded,Error error)
     {
-        Success = isSucceeded;
+        IsSuccess = isSucceeded;
         Message = error.Message;
     }
-    public bool Success { get; set; }
+    public bool IsSuccess { get; set; }
     public string Message { get; set; } 
+
+    public static Result Success()
+    {
+        return new Result(true);
+    }
+
 }
 

@@ -1,4 +1,6 @@
 ﻿using Application.Users.Commands.CreateUser;
+using Application.Users.Commands.DeleteUser;
+using Application.Users.Commands.UpdateUser;
 using Application.Users.Queries.GetUserById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class UserController : ApiController
 {
     public UserController(IMediator mediator) : base(mediator)
@@ -14,11 +16,11 @@ public class UserController : ApiController
     }
 
     [HttpGet] 
-    public async Task<IActionResult> Get(Guid guid)
+    public async Task<IActionResult> GetUserById(Guid guid)
     {
         var result = await _mediator.Send(new GetUserByIdQuery(guid));
 
-        if(!result.Success)
+        if(!result.IsSuccess)
         {
             return BadRequest(result);
         }
@@ -27,16 +29,43 @@ public class UserController : ApiController
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(CreateUserCommand user)
+    public async Task<IActionResult> Create(CreateUserCommand user)
     {
         var result = await _mediator.Send(user);
 
-        if(!result.Success)
+        if(!result.IsSuccess)
         {
             return BadRequest(result);
         }
 
-        return CreatedAtAction(nameof(Get), result.Value);
+        return CreatedAtAction(nameof(GetUserById), result.Value);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Create(UpdateUserCommand updateUser)
+    {
+        var result = await _mediator.Send(updateUser);
+
+        if (!result.IsSuccess)
+        {
+            return BadRequest(result);
+        }
+
+        return Ok(result.Value);
+    }
+
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var result = await _mediator.Send(new DeleteUserCommand(id));
+
+        if (!result.IsSuccess)
+        {
+            return BadRequest(result);
+        }
+
+        return NoContent();
     }
 
 }
