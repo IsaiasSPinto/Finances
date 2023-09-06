@@ -1,10 +1,9 @@
 ﻿using Domain.Primitives;
 using Domain.Shared;
-using Infrastructure.Context;
 
 namespace Infrastructure.Repositories;
 
-public class Repository<TEntity,TKey> : IRepository<TEntity,TKey> where TEntity : Entity<TKey>
+public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : Entity<TKey>
 {
     public readonly ApplicationDbContext _context;
 
@@ -23,9 +22,9 @@ public class Repository<TEntity,TKey> : IRepository<TEntity,TKey> where TEntity 
     {
         var entity = await _context.Set<TEntity>().FindAsync(id);
 
-        if(entity == null) 
+        if (entity == null)
             throw new Exception("Entity Not Found");
-        
+
         _context.Set<TEntity>().Remove(entity);
     }
 

@@ -2,10 +2,9 @@
 
 namespace Application.Accounts.Commands.CreateAccount;
 
-public class CreateAccountCommand : ICommand<Guid>
+public class CreateAccountCommand : ICommand<AccountDto>
 {
     public string Name { get; set; } = null!;
-    public string Description { get; set; } = null!;
     public decimal Budget { get; set; }
     public Guid UserId { get; set; }
 }

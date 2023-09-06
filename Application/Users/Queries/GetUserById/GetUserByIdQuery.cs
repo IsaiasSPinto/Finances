@@ -1,9 +1,8 @@
 ﻿using Application.Abstractions.Messaging;
-using Domain.Shared;
 
 namespace Application.Users.Queries.GetUserById;
 
-public class GetUserByIdQuery : IQuery<UserQueryResult>
+public class GetUserByIdQuery : IQuery<UserDto>
 {
     public GetUserByIdQuery(Guid id)
     {

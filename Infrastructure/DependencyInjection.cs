@@ -2,7 +2,6 @@
 using Domain.Accounts;
 using Domain.Shared;
 using Domain.Users;
-using Infrastructure.Context;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,10 +18,10 @@ public static class DependencyInjection
         services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<IAccountRepository, AccountRepository>();
-        services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
+        services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 
 
         return services;
-    } 
+    }
 }

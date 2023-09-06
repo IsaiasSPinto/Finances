@@ -1,9 +1,9 @@
 ﻿namespace Domain.Shared;
 
-public class ValidationResult : Result ,IValidationResult
+public class ValidationResult : Result, IValidationResult
 {
-    private ValidationResult(Error[] errors) 
-        : base(false,IValidationResult.ValidationError)
+    private ValidationResult(Error[] errors)
+        : base(false, IValidationResult.ValidationError)
     {
         Errors = errors;
     }

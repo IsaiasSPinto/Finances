@@ -7,7 +7,6 @@ public class CreateAccountCommandValidator : AbstractValidator<CreateAccountComm
     public CreateAccountCommandValidator()
     {
         RuleFor(x => x.Name).NotEmpty().MaximumLength(50);
-        RuleFor(x => x.Description).NotEmpty().MaximumLength(200);
         RuleFor(x => x.Budget).GreaterThan(0);
         RuleFor(x => x.UserId).NotEmpty();
     }

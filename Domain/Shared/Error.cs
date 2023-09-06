@@ -1,6 +1,6 @@
 ﻿namespace Domain.Shared;
 
-public class Error 
+public class Error
 {
     public Error(string name, string message)
     {

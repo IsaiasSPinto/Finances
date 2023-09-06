@@ -26,8 +26,8 @@ public class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
         }
         catch (Exception ex)
         {
-            return new Result(false, new Error("Error",ex.Message));
+            return new Result(false, new Error("Error", ex.Message));
         }
     }
-}   
+}
 

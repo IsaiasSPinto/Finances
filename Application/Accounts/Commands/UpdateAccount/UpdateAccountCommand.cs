@@ -1,11 +1,8 @@
-﻿using Application.Abstractions.Messaging;
+﻿using Application.Accounts.Commands.CreateAccount;
 
 namespace Application.Accounts.Commands.UpdateAccount;
 
-public class UpdateAccountCommand : ICommand<AccountDto>
+public class UpdateAccountCommand : CreateAccountCommand
 {
     public Guid Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public decimal Budget { get; set; }
 }

@@ -15,12 +15,12 @@ public class UserController : ApiController
     {
     }
 
-    [HttpGet] 
+    [HttpGet]
     public async Task<IActionResult> GetUserById(Guid guid)
     {
         var result = await _mediator.Send(new GetUserByIdQuery(guid));
 
-        if(!result.IsSuccess)
+        if (!result.IsSuccess)
         {
             return BadRequest(result);
         }
@@ -33,7 +33,7 @@ public class UserController : ApiController
     {
         var result = await _mediator.Send(user);
 
-        if(!result.IsSuccess)
+        if (!result.IsSuccess)
         {
             return BadRequest(result);
         }

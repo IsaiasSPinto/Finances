@@ -6,19 +6,20 @@ using Domain.Shared;
 
 namespace Application.Accounts.Commands.CreateAccount;
 
-public class CreateAccountCommandHandler : ICommandHandler<CreateAccountCommand, Guid>
+public class CreateAccountCommandHandler : ICommandHandler<CreateAccountCommand, AccountDto>
 {
     private readonly IAccountRepository _accountRepository;
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
-    public CreateAccountCommandHandler(IAccountRepository account,IMapper mapper, IUnitOfWork unitOfWork)
+    public CreateAccountCommandHandler(IAccountRepository account, IMapper mapper, IUnitOfWork unitOfWork)
     {
         _accountRepository = account;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
     }
-      
-    public async Task<Result<Guid>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+
+
+    public async Task<Result<AccountDto>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
     {
         var account = _mapper.Map<Account>(request);
 
@@ -26,6 +27,8 @@ public class CreateAccountCommandHandler : ICommandHandler<CreateAccountCommand,
 
         await _unitOfWork.CommitAsync(cancellationToken);
 
-        return Result<Guid>.Success(account.Id);
+        var result = _mapper.Map<AccountDto>(account);
+
+        return Result<AccountDto>.Success(result);
     }
 }

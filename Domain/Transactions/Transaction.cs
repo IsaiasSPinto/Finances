@@ -5,12 +5,15 @@ using Domain.Primitives;
 namespace Domain.Transactions;
 public class Transaction : Entity<Guid>
 {
-    public string Description { get; set; } = null!;
+    public string Description { get; set; }
     public decimal Amount { get; set; }
+
     public Guid AccountId { get; set; }
-    public Account Account { get; set; } = null!;
-    public Guid? CategoryId { get; set; } = null;
-    public Category? Category { get; set; } = null;
+    public virtual Account Account { get; set; }
+
+    public Guid CategoryId { get; set; }
+    public virtual Category Category { get; set; }
+
     public TrasactionType Type { get; set; }
 
 }

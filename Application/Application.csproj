@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Categories\" />
     <Folder Include="Transactions\Commands\" />
     <Folder Include="Transactions\Queries\" />
   </ItemGroup>

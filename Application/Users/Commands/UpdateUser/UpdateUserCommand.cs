@@ -1,10 +1,8 @@
-﻿using Application.Abstractions.Messaging;
-using Application.Users.Queries;
+﻿using Application.Users.Commands.CreateUser;
 
 namespace Application.Users.Commands.UpdateUser;
 
-public class UpdateUserCommand : ICommand<UserQueryResult>
+public class UpdateUserCommand : CreateUserCommand
 {
     public Guid Id { get; set; }
-    public string Name { get; set; }
 }

@@ -1,6 +1,7 @@
 ﻿using Application.Accounts.Commands.CreateAccount;
 using Application.Accounts.Commands.DeleteAccount;
 using Application.Accounts.Commands.UpdateAccount;
+using Application.Accounts.Queries.GetAccountById;
 using Application.Accounts.Queries.GetAccountsByUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,13 +29,18 @@ public class AccountController : ApiController
 
     [HttpGet]
     [Route("/GetById")]
-    public async Task<IActionResult> Get(Guid userId)
+    public async Task<IActionResult> Get(Guid accountId)
     {
-        var query = new GetAccountsForUserQuery(userId);
+        var query = new GetAccountByIdQuery(accountId);
 
         var result = await _mediator.Send(query);
 
-        return Ok(result);
+        if (!result.IsSuccess)
+        {
+            return NotFound(result);
+        }
+
+        return Ok(result.Value);
     }
 
     [HttpPost]
@@ -42,12 +48,12 @@ public class AccountController : ApiController
     {
         var result = await _mediator.Send(command);
 
-        if(!result.IsSuccess)
+        if (!result.IsSuccess)
         {
             return BadRequest(result);
         }
 
-        return CreatedAtAction(nameof(Get),"", result.Value);
+        return CreatedAtAction(nameof(Get), "", result.Value);
     }
 
     [HttpPut]
@@ -66,8 +72,10 @@ public class AccountController : ApiController
 
 
     [HttpDelete]
-    public async Task<IActionResult> DeleteAccount(DeleteAccountCommand command)
+    public async Task<IActionResult> DeleteAccount(Guid id)
     {
+        var command = new DeleteAccountCommand(id);
+
         var result = await _mediator.Send(command);
 
         if (!result.IsSuccess)

@@ -17,7 +17,7 @@ public class ValidationPipelineBehavior<TRequest, TResponse>
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        if(!_validators.Any())
+        if (!_validators.Any())
         {
             return await next();
         }
@@ -28,7 +28,7 @@ public class ValidationPipelineBehavior<TRequest, TResponse>
             .Select(error => new Error(error.PropertyName, error.ErrorMessage))
             .ToArray();
 
-        if(errors.Any())
+        if (errors.Any())
         {
             return CreateValidationResult<TResponse>(errors);
         }
@@ -38,7 +38,7 @@ public class ValidationPipelineBehavior<TRequest, TResponse>
 
     private static TResult CreateValidationResult<TResult>(Error[] errors) where TResult : Result
     {
-        if(typeof(TResult) == typeof(Result))
+        if (typeof(TResult) == typeof(Result))
         {
             return (ValidationResult.WithErrors(errors) as TResult)!;
         }
@@ -48,8 +48,8 @@ public class ValidationPipelineBehavior<TRequest, TResponse>
             .MakeGenericType(typeof(TResult)
             .GenericTypeArguments[0])
             .GetMethod(nameof(ValidationResult.WithErrors))!
-            .Invoke(null,new object?[] { errors })!;
-            
+            .Invoke(null, new object?[] { errors })!;
+
         return (TResult)validationResult;
     }
 }

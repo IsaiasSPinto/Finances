@@ -4,12 +4,12 @@ using Domain.Transactions;
 using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context;
+namespace Infrastructure;
 
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {        
+    {
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

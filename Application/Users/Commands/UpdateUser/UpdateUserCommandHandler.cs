@@ -4,23 +4,24 @@ using Application.Users.Queries;
 using AutoMapper;
 using Domain.Shared;
 using Domain.Users;
+using MediatR;
 
 namespace Application.Users.Commands.UpdateUser;
 
-public class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand, UserQueryResult>
+public class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand, UserDto>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
 
-    public UpdateUserCommandHandler(IUnitOfWork unitOfWork , IUserRepository userRepository, IMapper mapper)
+    public UpdateUserCommandHandler(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _userRepository = userRepository;
         _mapper = mapper;
     }
 
-    public async Task<Result<UserQueryResult>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result<UserDto>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
     {
         var updatedUser = _mapper.Map<User>(request);
 
@@ -28,8 +29,8 @@ public class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand, UserQ
 
         await _unitOfWork.CommitAsync(cancellationToken);
 
-        var result = await _userRepository.GetByIdAsync(request.Id);
+        var result = _mapper.Map<UserDto>(updatedUser);
 
-        return Result<UserQueryResult>.Success(_mapper.Map<UserQueryResult>(result));
+        return Result<UserDto>.Success(result);
     }
 }

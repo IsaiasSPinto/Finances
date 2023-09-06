@@ -6,7 +6,7 @@ public class Result<TValue> : Result
     {
     }
 
-    public Result(bool isSucceeded,TValue value) : base(isSucceeded)
+    public Result(bool isSucceeded, TValue value) : base(isSucceeded)
     {
         Value = value;
     }
@@ -16,6 +16,11 @@ public class Result<TValue> : Result
     public static Result<TValue> Success(TValue value)
     {
         return new Result<TValue>(true, value);
+    }
+
+    public static Result<TValue> Failure(Error error)
+    {
+        return new Result<TValue>(false, error);
     }
 }
 
