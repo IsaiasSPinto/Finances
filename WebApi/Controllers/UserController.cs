@@ -2,8 +2,6 @@
 using Application.Users.Commands.DeleteUser;
 using Application.Users.Commands.UpdateUser;
 using Application.Users.Queries.GetUserById;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 

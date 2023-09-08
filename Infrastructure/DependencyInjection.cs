@@ -1,10 +1,4 @@
-﻿using Application.Abstractions;
-using Domain.Accounts;
-using Domain.Shared;
-using Domain.Users;
-using Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
@@ -18,6 +12,8 @@ public static class DependencyInjection
         services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<IAccountRepository, AccountRepository>();
+        services.AddTransient<ITransactionRepository, TransactionRepository>();
+        services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 

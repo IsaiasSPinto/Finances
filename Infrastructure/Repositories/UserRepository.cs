@@ -1,6 +1,4 @@
-﻿using Domain.Users;
-
-namespace Infrastructure.Repositories;
+﻿namespace Infrastructure.Repositories;
 
 public class UserRepository : Repository<User, Guid>, IUserRepository
 {

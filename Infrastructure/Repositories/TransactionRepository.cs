@@ -1,11 +1,9 @@
-﻿//using Domain.Transactions;
-//using Infrastructure.Context;
+﻿namespace Infrastructure.Repositories;
 
-//namespace Infrastructure.Repositories;
+public class TransactionRepository : Repository<Transaction, Guid>, ITransactionRepository
+{
+    public TransactionRepository(ApplicationDbContext context) : base(context)
+    {
+    }
 
-//public class TransactionRepository : Repository, ITransactionRepository
-//{
-//    public TransactionRepository(ApplicationDbContext context) : base(context)
-//    {
-//    }
-//}
+}

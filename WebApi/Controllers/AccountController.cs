@@ -3,8 +3,6 @@ using Application.Accounts.Commands.DeleteAccount;
 using Application.Accounts.Commands.UpdateAccount;
 using Application.Accounts.Queries.GetAccountById;
 using Application.Accounts.Queries.GetAccountsByUser;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 

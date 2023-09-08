@@ -1,5 +1,7 @@
 ﻿using Application.Accounts.Mappings;
 using Application.Behaviors;
+using Application.Categories.Mappings;
+using Application.Transactions.Mappings;
 using Application.Users.Mappings;
 using FluentValidation;
 using MediatR;
@@ -22,6 +24,8 @@ public static class DependencyInjection
 
         services.AddAutoMapper(typeof(UserMappingProfile));
         services.AddAutoMapper(typeof(AccountMappingProfile));
+        services.AddAutoMapper(typeof(TransactionMappingProfile));
+        services.AddAutoMapper(typeof(CategoryMappingProfile));
 
         return services;
     }

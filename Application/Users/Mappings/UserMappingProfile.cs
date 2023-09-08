@@ -1,6 +1,5 @@
 ﻿using Application.Users.Commands.CreateUser;
 using Application.Users.Commands.UpdateUser;
-using Application.Users.Queries;
 using AutoMapper;
 using Domain.Users;
 

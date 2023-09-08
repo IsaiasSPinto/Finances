@@ -1,6 +1,4 @@
-﻿using Application.Abstractions;
-
-namespace Infrastructure;
+﻿namespace Infrastructure;
 
 public class UnitOfWork : IUnitOfWork
 {

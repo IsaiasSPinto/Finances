@@ -1,5 +1,8 @@
-﻿namespace Domain.Transactions;
+﻿using Domain.Shared;
 
-public interface ITransactionRepository
+namespace Domain.Transactions;
+
+public interface ITransactionRepository : IRepository<Transaction, Guid>
 {
+
 }

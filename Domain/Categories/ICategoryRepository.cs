@@ -1,5 +1,7 @@
-﻿namespace Domain.Categories;
+﻿using Domain.Shared;
 
-public interface ICategoryRepository
+namespace Domain.Categories;
+
+public interface ICategoryRepository : IRepository<Category, Guid>
 {
 }

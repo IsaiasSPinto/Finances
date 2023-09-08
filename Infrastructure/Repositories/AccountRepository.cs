@@ -1,7 +1,4 @@
-﻿using Domain.Accounts;
-using Microsoft.EntityFrameworkCore;
-
-namespace Infrastructure.Repositories;
+﻿namespace Infrastructure.Repositories;
 
 public class AccountRepository : Repository<Account, Guid>, IAccountRepository
 {

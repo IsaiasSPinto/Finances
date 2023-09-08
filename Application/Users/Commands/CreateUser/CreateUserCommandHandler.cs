@@ -1,10 +1,8 @@
 ﻿using Application.Abstractions;
-using Application.Abstractions.Command;
 using Application.Abstractions.Messaging;
 using AutoMapper;
 using Domain.Shared;
 using Domain.Users;
-using MediatR;
 
 namespace Application.Users.Commands.CreateUser;
 

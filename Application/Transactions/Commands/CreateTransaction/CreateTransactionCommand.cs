@@ -1,18 +1,16 @@
-﻿using Application.Categories;
+﻿using Application.Abstractions.Messaging;
 using Domain.Transactions;
 
-namespace Application.Transactions;
+namespace Application.Transactions.Commands.CreateTransaction;
 
-public class TransactionDto
+public class CreateTransactionCommand : ICommand<TransactionDto>
 {
-    public Guid Id { get; set; }
     public string Description { get; set; } = null!;
     public decimal Amount { get; set; }
     public TrasactionType Type { get; set; }
 
     public Guid AccountId { get; set; }
-
     public Guid CategoryId { get; set; }
-    public CategoryDto Category { get; set; }
-
 }
+
+
