@@ -2,7 +2,6 @@
 using Application.Behaviors;
 using Application.Categories.Mappings;
 using Application.Transactions.Mappings;
-using Application.Users.Mappings;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +21,6 @@ public static class DependencyInjection
 
         services.AddValidatorsFromAssembly(assembly, includeInternalTypes: true);
 
-        services.AddAutoMapper(typeof(UserMappingProfile));
         services.AddAutoMapper(typeof(AccountMappingProfile));
         services.AddAutoMapper(typeof(TransactionMappingProfile));
         services.AddAutoMapper(typeof(CategoryMappingProfile));

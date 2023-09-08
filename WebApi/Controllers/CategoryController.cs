@@ -1,9 +1,11 @@
 ﻿using Application.Categories.Commands.CreateCommand;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class CategoryController : ApiController
 {
     public CategoryController(IMediator mediator) : base(mediator)

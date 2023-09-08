@@ -1,10 +1,9 @@
 ﻿using Application.Abstractions.Messaging;
 
-namespace Application.Users.Commands.CreateUser;
+namespace Application.Authentication.Command.Login;
 
-public class CreateUserCommand : ICommand<UserDto>
+public class LoginCommand : ICommand<LoginResponse>
 {
-    public string Name { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string Password { get; set; } = null!;
 }

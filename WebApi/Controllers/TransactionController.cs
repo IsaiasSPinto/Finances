@@ -1,10 +1,12 @@
 ﻿using Application.Transactions.Commands.CreateTransaction;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers;
 
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class TransactionController : ApiController
 {
     public TransactionController(IMediator mediator) : base(mediator)

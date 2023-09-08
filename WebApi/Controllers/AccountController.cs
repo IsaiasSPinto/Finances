@@ -3,20 +3,23 @@ using Application.Accounts.Commands.DeleteAccount;
 using Application.Accounts.Commands.UpdateAccount;
 using Application.Accounts.Queries.GetAccountById;
 using Application.Accounts.Queries.GetAccountsByUser;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class AccountController : ApiController
 {
     public AccountController(IMediator mediator) : base(mediator)
     {
     }
-
+    
     [HttpGet]
-    public async Task<IActionResult> GetAccountsByUser(Guid userId)
+    public async Task<IActionResult> GetAccountsByUser()
     {
+        var userId = Guid.Parse(User.Identity.Name);
         var query = new GetAccountsForUserQuery(userId);
 
         var result = await _mediator.Send(query);
