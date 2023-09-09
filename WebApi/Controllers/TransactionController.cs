@@ -16,7 +16,7 @@ public class TransactionController : ApiController
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        return Ok();
+        return Ok("Foi");
     }
 
 

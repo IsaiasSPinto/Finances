@@ -4,6 +4,7 @@ using Application.Accounts.Commands.UpdateAccount;
 using Application.Accounts.Queries.GetAccountById;
 using Application.Accounts.Queries.GetAccountsByUser;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace WebApi.Controllers;
 
@@ -19,7 +20,7 @@ public class AccountController : ApiController
     [HttpGet]
     public async Task<IActionResult> GetAccountsByUser()
     {
-        var userId = Guid.Parse(User.Identity.Name);
+        var userId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
         var query = new GetAccountsForUserQuery(userId);
 
         var result = await _mediator.Send(query);

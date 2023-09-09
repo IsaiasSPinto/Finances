@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Domain.Users;
 
 namespace Application.Abstractions.Auth;
 
 public interface IJwtTokenGenerator
 {
-    string GenerateToken(IdentityUser user);
+    string GenerateToken(User user);
 }

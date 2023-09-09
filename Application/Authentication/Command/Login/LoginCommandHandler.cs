@@ -2,17 +2,18 @@
 using Application.Abstractions.Messaging;
 using AutoMapper;
 using Domain.Shared;
+using Domain.Users;
 using Microsoft.AspNetCore.Identity;
 
 namespace Application.Authentication.Command.Login;
 
 public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponse>
 {
-    private readonly UserManager<IdentityUser> _userManager;
-    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<User> _userManager;
+    private readonly SignInManager<User> _signInManager;
     private readonly IJwtTokenGenerator _jwtGenerator;
 
-    public LoginCommandHandler(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IJwtTokenGenerator jwtGenerator)
+    public LoginCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager, IJwtTokenGenerator jwtGenerator)
     {
         _userManager = userManager;
         _signInManager = signInManager;

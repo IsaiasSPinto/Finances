@@ -11,8 +11,6 @@ public class TransactionDto
     public TrasactionType Type { get; set; }
 
     public Guid AccountId { get; set; }
-
-    public Guid CategoryId { get; set; }
     public CategoryDto Category { get; set; }
 
 }
