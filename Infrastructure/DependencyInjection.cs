@@ -23,7 +23,7 @@ public static class DependencyInjection
         services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-        services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+        services.AddIdentity<User, IdentityRole<Guid>>().AddEntityFrameworkStores<ApplicationDbContext>();
 
         var jwtSettings = new JwtSettings();
         configuration.GetSection(JwtSettings.SectionName).Bind(jwtSettings);

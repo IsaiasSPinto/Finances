@@ -39,6 +39,17 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddAplication().AddInfrastructure(builder.Configuration);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+      policy =>
+      {
+          policy.AllowAnyOrigin()
+             .AllowAnyHeader()
+             .AllowAnyMethod();
+      });
+});
+
 builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.ReadFrom.Configuration(context.Configuration);
@@ -55,6 +66,8 @@ if (app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 
 app.UseAuthentication();
