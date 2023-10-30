@@ -2,7 +2,5 @@
 
 namespace Application.Accounts.Commands.UpdateAccount;
 
-public class UpdateAccountCommand : CreateAccountCommand
-{
-    public Guid Id { get; set; }
-}
+public record UpdateAccountCommand(Guid Id, string Name, decimal Budget, Guid UserId) 
+: CreateAccountCommand(Name, Budget, UserId);

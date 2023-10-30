@@ -11,13 +11,13 @@ public class CreateAccountCommandHandler : ICommandHandler<CreateAccountCommand,
     private readonly IAccountRepository _accountRepository;
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
+
     public CreateAccountCommandHandler(IAccountRepository account, IMapper mapper, IUnitOfWork unitOfWork)
     {
         _accountRepository = account;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
     }
-
 
     public async Task<Result<AccountDto>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
     {
