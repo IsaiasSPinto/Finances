@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Repositories;
+﻿namespace Infrastructure.Persistence.Repositories;
 
 public class CategoryRepository : Repository<Category, Guid>, ICategoryRepository
 {

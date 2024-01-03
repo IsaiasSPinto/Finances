@@ -1,11 +1,11 @@
 ﻿using Domain.Users;
-using Infrastructure.Configuration;
+using Infrastructure.Persistence.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace Infrastructure;
+namespace Infrastructure.Persistence;
 
-public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid> ,Guid>
+public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {

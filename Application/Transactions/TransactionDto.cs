@@ -1,5 +1,5 @@
 ﻿using Application.Categories;
-using Domain.Transactions;
+using Domain.Transactions.Enums;
 
 namespace Application.Transactions;
 

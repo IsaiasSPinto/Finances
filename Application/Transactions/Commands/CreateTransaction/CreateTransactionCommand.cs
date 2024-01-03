@@ -1,5 +1,5 @@
 ﻿using Application.Abstractions.Messaging;
-using Domain.Transactions;
+using Domain.Transactions.Enums;
 
 namespace Application.Transactions.Commands.CreateTransaction;
 

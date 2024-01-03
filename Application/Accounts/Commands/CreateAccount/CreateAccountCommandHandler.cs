@@ -2,7 +2,7 @@
 using Application.Abstractions.Messaging;
 using AutoMapper;
 using Domain.Accounts;
-using Domain.Shared;
+using Domain.Common.Models;
 
 namespace Application.Accounts.Commands.CreateAccount;
 

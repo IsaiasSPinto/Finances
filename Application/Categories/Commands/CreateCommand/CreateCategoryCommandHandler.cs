@@ -2,7 +2,7 @@
 using Application.Abstractions.Messaging;
 using AutoMapper;
 using Domain.Categories;
-using Domain.Shared;
+using Domain.Common.Models;
 
 namespace Application.Categories.Commands.CreateCommand;
 

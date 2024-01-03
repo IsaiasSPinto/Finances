@@ -1,4 +1,4 @@
-﻿using Domain.Shared;
+﻿using Domain.Common.Models;
 using FluentValidation;
 using MediatR;
 

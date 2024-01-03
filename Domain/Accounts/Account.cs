@@ -1,4 +1,4 @@
-﻿using Domain.Primitives;
+﻿using Domain.Common.Models;
 using Domain.Transactions;
 using Domain.Users;
 
@@ -6,6 +6,10 @@ namespace Domain.Accounts;
 
 public class Account : Entity<Guid>
 {
+    public Account(Guid id) : base(id)
+    {
+    }
+
     public string Name { get; set; }
     public decimal Budget { get; set; }
     public User User { get; set; }

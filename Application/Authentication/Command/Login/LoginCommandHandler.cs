@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions.Auth;
 using Application.Abstractions.Messaging;
 using AutoMapper;
-using Domain.Shared;
+using Domain.Common.Models;
 using Domain.Users;
 using Microsoft.AspNetCore.Identity;
 
@@ -26,14 +26,14 @@ public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponse>
 
         if (user == null)
         {
-            return Result<LoginResponse>.Failure(new Error("Authenticate", "Invalid Credentials"));
+            return Result.Failure<LoginResponse>(new Error("Authenticate", "Invalid Credentials"));
         }
 
         var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
         if (!result.Succeeded)
         {
-            return Result<LoginResponse>.Failure(new Error("Authenticate", "Invalid Credentials"));
+            return Result.Failure<LoginResponse>(new Error("Authenticate", "Invalid Credentials"));
         }
 
         var token = _jwtGenerator.GenerateToken(user);

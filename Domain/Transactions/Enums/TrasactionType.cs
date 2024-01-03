@@ -1,4 +1,4 @@
-﻿namespace Domain.Transactions;
+﻿namespace Domain.Transactions.Enums;
 
 public enum TrasactionType
 {

@@ -1,10 +1,15 @@
 ﻿using Domain.Accounts;
 using Domain.Categories;
-using Domain.Primitives;
+using Domain.Common.Models;
+using Domain.Transactions.Enums;
 
 namespace Domain.Transactions;
 public class Transaction : Entity<Guid>
 {
+    public Transaction(Guid id) : base(id)
+    {
+    }
+
     public string Description { get; set; }
     public decimal Amount { get; set; }
 

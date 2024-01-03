@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions;
 using Application.Abstractions.Messaging;
 using Domain.Accounts;
-using Domain.Shared;
+using Domain.Common.Models;
 
 namespace Application.Accounts.Commands.DeleteAccount;
 

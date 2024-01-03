@@ -1,4 +1,4 @@
-﻿using Domain.Primitives;
+﻿using Domain.Common.Models;
 
 namespace Domain.Shared;
 

@@ -1,6 +1,6 @@
-﻿using Domain.Primitives;
+﻿using Domain.Common.Models;
 
-namespace Infrastructure.Repositories;
+namespace Infrastructure.Persistence.Repositories;
 
 public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : Entity<TKey>
 {

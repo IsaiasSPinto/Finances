@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions.Messaging;
 using AutoMapper;
 using Domain.Accounts;
-using Domain.Shared;
+using Domain.Common.Models;
 
 namespace Application.Accounts.Queries.GetAccountById;
 
@@ -21,7 +21,7 @@ public class GetAccountByIdQueryHandler : IQueryHandler<GetAccountByIdQuery, Acc
 
         if (account == null)
         {
-            return Result<AccountDto>.Failure(new Error("Not Found", $"Account with id {request.Id} not found"));
+            return Result.Failure<AccountDto>(new Error("Not Found", $"Account with id {request.Id} not found"));
         }
 
         return Result<AccountDto>.Success(_mapper.Map<AccountDto>(account));

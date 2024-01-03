@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions;
 using Application.Abstractions.Messaging;
 using AutoMapper;
-using Domain.Shared;
+using Domain.Common.Models;
 using Domain.Transactions;
 
 namespace Application.Transactions.Commands.CreateTransaction;
