@@ -9,6 +9,10 @@ public class Category : Entity<Guid>
     {
     }
 
+    public Category()
+    {
+    }
+
     public string Name { get; set; }
     public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }

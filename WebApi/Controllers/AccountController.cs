@@ -5,6 +5,7 @@ using Application.Accounts.Queries.GetAccountById;
 using Application.Accounts.Queries.GetAccountsByUser;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using WebApi.Contracts;
 
 namespace WebApi.Controllers;
 
@@ -16,7 +17,7 @@ public class AccountController : ApiController
     public AccountController(IMediator mediator) : base(mediator)
     {
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> GetAccountsByUser()
     {
@@ -46,8 +47,11 @@ public class AccountController : ApiController
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAccount(CreateAccountCommand command)
+    public async Task<IActionResult> CreateAccount(CreateAccountRequest request)
     {
+        var userId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
+        var command = new CreateAccountCommand(request.Name, request.Budget, userId);
+
         var result = await _mediator.Send(command);
 
         if (!result.IsSuccess)

@@ -2,8 +2,8 @@
 
 namespace Application.Accounts.Commands.CreateAccount;
 
-public record CreateAccountCommand (
+public record CreateAccountCommand(
     string Name,
-    decimal Budget, 
+    decimal Budget,
     Guid UserId
 ) : ICommand<AccountDto>;

@@ -6,6 +6,9 @@ namespace Domain.Accounts;
 
 public class Account : Entity<Guid>
 {
+    public Account()
+    {
+    }
     public Account(Guid id) : base(id)
     {
     }

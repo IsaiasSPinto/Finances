@@ -10,6 +10,10 @@ public class Transaction : Entity<Guid>
     {
     }
 
+    public Transaction()
+    {
+    }
+
     public string Description { get; set; }
     public decimal Amount { get; set; }
 

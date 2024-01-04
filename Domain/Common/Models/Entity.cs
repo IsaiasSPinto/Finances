@@ -9,6 +9,10 @@ public abstract class Entity<TKey> : IEquatable<Entity<TKey>>
         Id = id;
     }
 
+    protected Entity()
+    {
+    }
+
     public override bool Equals(object? obj)
     {
         return obj is Entity<TKey> entity && Id.Equals(entity.Id);
