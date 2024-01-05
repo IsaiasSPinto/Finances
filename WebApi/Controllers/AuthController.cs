@@ -38,4 +38,18 @@ public class AuthController : ApiController
 
         return Ok(result.Value);
     }
+
+    [HttpPost("refreshToken")]
+    public async Task<ActionResult> RefreshToken(LoginCommand request)
+    {
+        var result = await _mediator.Send(request);
+
+        if (!result.IsSuccess)
+        {
+            return BadRequest(result);
+        }
+
+        return Ok(result.Value);
+    }
+
 }
