@@ -37,10 +37,15 @@ public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponse>
         }
 
         var token = _jwtGenerator.GenerateToken(user);
+        var refreshToken = _jwtGenerator.GenerateRefreshToken();
 
-        var userDto = new LoginResponse { Email = user.Email, Name = user.UserName, Token = token };
+        user.RefreshToken = refreshToken;
+        user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
+        await _userManager.UpdateAsync(user);
 
-        return Result<LoginResponse>.Success(userDto);
+        var userDto = new LoginResponse { Email = user.Email, Name = user.UserName, Token = token, RefreshToken = refreshToken };
+
+        return Result.Success(userDto);
     }
 }
 

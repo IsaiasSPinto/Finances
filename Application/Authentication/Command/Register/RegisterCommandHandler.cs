@@ -27,10 +27,14 @@ public class RegisterCommandHandler : ICommandHandler<RegisterCommand, LoginResp
         }
 
         var token = _jwtTokenGenerator.GenerateToken(user);
+        var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
+        user.RefreshTokenExpiryTime = DateTime.Now.AddDays(30);
 
-        var userDto = new LoginResponse { Email = user.Email, Name = user.UserName, Token = token };
+        var userDto = new LoginResponse { Email = user.Email, Name = user.UserName, Token = token, RefreshToken = refreshToken };
 
+        user.RefreshToken = refreshToken;
+        await _userManager.UpdateAsync(user);
 
-        return Result<LoginResponse>.Success(userDto);
+        return Result.Success(userDto);
     }
 }
